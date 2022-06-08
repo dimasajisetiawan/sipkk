@@ -43,8 +43,19 @@
                             Rp.
                           </div>
                         </div>
-                        <input type="text" class="form-control currency" name="nominal" value="{{ old('nominal',$daftar_penyumbang->nominal) }}">
+                        <input type="text" class="form-control currency @error('nominal') is-invalid
+                        @enderror" name="nominal" maxlength="13" value="{{ old('nominal',$daftar_penyumbang->nominal) }}">
                       </div>
+                      @error('nominal')
+                        <div class="invalid-message">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        @if (session('error'))
+                        <div class="invalid-message">
+                            {{ session('error') }}
+                        </div>
+                        @endif
                     </div>
               <div>
                   <button type="submit" class="btn btn-primary">

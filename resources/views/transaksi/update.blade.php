@@ -10,7 +10,7 @@
           <h4>Form Ubah Transaksi</h4>
         </div>
         <div class="card-body">
-            <form action="/ubahtransaksi{{ $transaksi->id_transaksi }}" method="post">
+            <form action="/ubahtransaksi/{{ $transaksi->id_transaksi }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label>Tanggal Transaksi</label>

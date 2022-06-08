@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\sumbangan;
-use App\Models\level_satu;
 use App\Models\transaksi;
+use App\Models\level_satu;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class SumbanganController extends Controller
 {
@@ -44,7 +45,7 @@ class SumbanganController extends Controller
         $validatedData = $request->validate([
             'tgl_buka' => 'required',
             'tgl_tutup' => 'required',
-            'kode_kegiatan' => 'required|unique:sumbangan,kode_kegiatan',
+            'kode_kegiatan' => ['required',Rule::unique('sumbangan')->ignore($sumbangan->kode_sumbangan,'kode_sumbangan')],
             'nama_kegiatan' => 'required',
             'keterangan' => 'required'
         ]);
