@@ -36,7 +36,7 @@
                         <td >{{ $sumbangan->tgl_tutup }}</td>
                       <td style="width:15%">
                         @if ($sumbangan->tgl_tutup < \Carbon\Carbon::now())
-                        <a href="/posttransaksi/{{ $sumbangan->kode_kegiatan }}" class="btn btn-icon btn-info btn-sm mr-1"><i class="far fa-eye"></i></a>
+                        <a href="/posttransaksi/{{ $sumbangan->kode_kegiatan }}" class="btn btn-icon btn-warning btn-sm mr-1"><i class="fas fa-folder-plus"></i></a>
                         <a href="/hapussumbangan/{{ $sumbangan->kode_kegiatan }}" class="btn btn-icon btn-danger btn-sm swal-6"><i class="fas fa-trash"></i></a>
                         @else
                         <a href="/ubahsumbangan/{{ $sumbangan->kode_kegiatan }}" class="btn btn-icon btn-primary btn-sm mr-1"><i class="far fa-edit"></i></a>
