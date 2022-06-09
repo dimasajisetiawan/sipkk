@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\akun;
 use App\Models\level_dua;
+use App\Models\transaksi;
 use App\Models\level_satu;
 use App\Models\level_tiga;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class JsonAkun extends Controller
 {
@@ -49,5 +51,32 @@ class JsonAkun extends Controller
 
 
          return response()->json($data);
+    }
+
+    public function cek_periode(Request $request)
+    {
+        if(!empty($request->bulan) && empty($request->tahun)){
+            $data = transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'),DB::raw('MONTH(tgl_transaksi) as bulan'),DB::raw('YEAR(tgl_transaksi) as tahun'))->whereMonth('tgl_transaksi',$request->bulan)->get();
+            // $data += transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'))->whereMonth('tgl_transaksi',$request->bulan)->where('jenis_saldo','debit')->sum('saldo');
+            // $data += transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'))->whereMonth('tgl_transaksi',$request->bulan)->where('jenis_saldo','kredit')->sum('saldo');
+            return response()->json($data);
+        }
+
+        elseif(!empty($request->tahun) && empty($request->bulan)){
+            $data = transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'),DB::raw('MONTH(tgl_transaksi) as bulan'),DB::raw('YEAR(tgl_transaksi) as tahun'))->whereYear('tgl_transaksi',$request->tahun)->get();
+            // $data += transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'))->whereYear('tgl_transaksi',$request->tahun)->where('jenis_saldo','debit')->sum('saldo');
+            // $data += transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'))->whereYear('tgl_transaksi',$request->tahun)->where('jenis_saldo','kredit')->sum('saldo');
+            return response()->json($data);
+        }
+        elseif($request->bulan==0 && $request->tahun==0 ){
+            $data = transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'),DB::raw('MONTH(tgl_transaksi) as bulan'),DB::raw('YEAR(tgl_transaksi) as tahun'))->get()->unique('bulan_tahun');
+            return $data;
+        }
+        else{
+            $data = transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'),DB::raw('MONTH(tgl_transaksi) as bulan'),DB::raw('YEAR(tgl_transaksi) as tahun'))->whereMonth('tgl_transaksi',$request->bulan)->whereYear('tgl_transaksi',$request->tahun)->get();
+            // $data += transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'))->whereMonth('tgl_transaksi',$request->bulan)->whereYear('tgl_transaksi',$request->tahun)->where('jenis_saldo','debit')->sum('saldo');
+            // $data += transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'))->whereMonth('tgl_transaksi',$request->bulan)->whereYear('tgl_transaksi',$request->tahun)->where('jenis_saldo','kredit')->sum('saldo');
+            return response()->json($data);
+        }
     }
 }

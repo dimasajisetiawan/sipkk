@@ -45,7 +45,7 @@ class SumbanganController extends Controller
         $validatedData = $request->validate([
             'tgl_buka' => 'required',
             'tgl_tutup' => 'required',
-            'kode_kegiatan' => ['required',Rule::unique('sumbangan')->ignore($sumbangan->kode_sumbangan,'kode_sumbangan')],
+            'kode_kegiatan' => ['required',Rule::unique('sumbangan','kode_kegiatan')->ignore($sumbangan)],
             'nama_kegiatan' => 'required',
             'keterangan' => 'required'
         ]);

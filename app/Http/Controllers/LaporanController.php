@@ -11,6 +11,8 @@ class LaporanController extends Controller
     public function index()
     {
         return view('laporan.index',[
+            'bulan' => transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%m") as bulan'))->get()->unique('bulan'),
+            'tahun' => transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%Y") as tahun'))->get()->unique('tahun'),
             'transaksi' =>transaksi::select('*',DB::raw('date_format(tgl_transaksi, "%M %Y") as bulan_tahun'))->get()->unique('bulan_tahun')
         ]);
     }

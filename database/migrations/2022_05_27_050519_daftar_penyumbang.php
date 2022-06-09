@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('daftar_penyumbang', function (Blueprint $table) {
             $table->id('id_daftar_penyumbang');
             $table->unsignedBigInteger('id_user');
-            $table->integer('nominal');
+            $table->bigInteger('nominal');
             $table->date('tgl_sumbangan');
             $table->unsignedBigInteger('id_penyumbang');
             $table->timestamps();

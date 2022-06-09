@@ -26,14 +26,6 @@
               </thead>
               <tbody>
                 <tr>
-                  {{-- <th scope="row">1</th>
-                  <td>1 Januari 2021</td>
-                  <td>Leoni Yacinta Brilianti</td>
-                  <td>Rp. 100.000</td>
-                  <td>
-                    <button href="#" class="btn btn-icon icon-left btn-primary btn-sm"><i class="far fa-edit"></i>Edit</button>
-                    <button href="#" class="btn btn-icon icon-left btn-danger btn-sm"><i class="fas fa-trash"></i>Delete</button>
-                  </td> --}}
                   @foreach ($penyumbang as $pny)
                   @foreach ($pny->daftar_penyumbang as $dp)
                   <td>{{ $loop->iteration }}</td>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_level_tiga')->nullable(true);
             $table->date('tgl_transaksi');
             $table->char('jenis_saldo',6);
-            $table->integer('saldo');
+            $table->bigInteger('saldo');
             $table->string('keterangan');
             $table->char('kode_kegiatan',10)->nullable(true);
             $table->timestamps();

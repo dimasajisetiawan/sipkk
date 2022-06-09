@@ -89,5 +89,7 @@ Route::controller(JsonAkun::class)->group(function() {
     Route::get('gen_level_tiga/{level_dua:id_level_dua}','gen_level_tiga')->name('gen_level_tiga')->middleware(['checkRole:admin,bendahara']);
     Route::get('sel_level_dua_on_level_tiga/{level_satu:id_level_satu}','sel_level_dua_on_level_tiga')->name('sel_level_dua_on_level_tiga')->middleware(['checkRole:admin,bendahara']);
     Route::get('sel_level_tiga/{level_dua:id_level_dua}','sel_level_tiga')->name('sel_level_tiga')->middleware(['checkRole:admin,bendahara']);
+
+    Route::get('cekperiode','cek_periode')->name('cekperiode');
 });
 

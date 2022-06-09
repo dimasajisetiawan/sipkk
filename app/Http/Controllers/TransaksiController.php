@@ -17,6 +17,10 @@ class TransaksiController extends Controller
             'debit' => transaksi::where('jenis_saldo','debit')->sum('saldo'),
             'kredit' => transaksi::where('jenis_saldo','kredit')->sum('saldo'),
         ]);
+        // $transaksi = transaksi::get();
+        // foreach ($transaksi as $tr) {
+        //     return $tr->sumbangan->penyumbang->daftar_penyumbang;
+        // }
         // return transaksi::get();
     }
     public function insert_transaksi(Request $request)

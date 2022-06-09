@@ -44,7 +44,7 @@
                           </div>
                         </div>
                         <input type="text" class="form-control currency @error('nominal') is-invalid
-                        @enderror" name="nominal" maxlength="13" value="{{ old('nominal',$daftar_penyumbang->nominal) }}">
+                        @enderror" name="nominal" value="{{ old('nominal',$daftar_penyumbang->nominal) }}">
                       </div>
                       @error('nominal')
                         <div class="invalid-message">

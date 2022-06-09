@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
@@ -42,5 +43,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('pemantau', function(User $user){
             return $user->role_users=='pemantau';
         });
+        config(['app.locale' => 'id']);
+	    Carbon::setLocale('id');
+        date_default_timezone_set('Asia/Jakarta');
     }
 }

@@ -52,7 +52,54 @@
                           @endif
                           <td>
                             <a href="/ubahtransaksi/{{ $tr->id_transaksi }}" class="btn btn-icon btn-primary btn-sm mr-1"><i class="far fa-edit"></i></button>
-                            <a href="/hapustransaksi/{{ $tr->id_transaksi }}" class="btn btn-icon btn-danger btn-sm swal-6"><i class="fas fa-trash"></i></button>
+                            <a href="/hapustransaksi/{{ $tr->id_transaksi }}" class="btn btn-icon btn-danger btn-sm swal-6 mr-1"><i class="fas fa-trash"></i></button>
+                                @if ($tr->kode_kegiatan)
+                                <a href="#" class="btn btn-icon btn-warning btn-sm" data-toggle="modal" data-target="#exampleModal{{ $tr->kode_kegiatan }}"><i class="fas fa-donate"></i></button>
+                                    @push('modal')
+                            <!-- Modal -->
+                        <div id="exampleModal{{ $tr->kode_kegiatan }}"  class="modal fade" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Daftar Penyumbang </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">No</th>
+                                              <th scope="col">Tanggal</th>
+                                              <th scope="col">Pemberi</th>
+                                              <th scope="col">Nominal</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              @foreach ($tr->sumbangan->penyumbang->daftar_penyumbang as $dp)
+                                              <td>{{ $loop->iteration }}</td>
+                                              <td>{{ \Carbon\Carbon::parse($dp->tgl_sumbangan)->isoFormat('D MMMM Y') }}</td>
+                                              <td>{{ $dp->user->nama }}</td>
+                                              <td>@rupiah($dp->nominal)</td>
+                                            </tr>
+                                              @endforeach
+                                          </tbody>
+                                          <tr>
+                                            <td colspan="3">Total</td>
+                                            <td>@rupiah($tr->sumbangan->penyumbang->total_nominal)</td>
+                                        </tr>
+                                        </table>
+                                      </div>
+
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        @endpush
+                                @endif
                           </td>
                       </tr>
                       @endforeach

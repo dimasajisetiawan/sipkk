@@ -24,13 +24,10 @@ class PenyumbangController extends Controller
             $validatedData = $request->validate([
                 'id_user' => 'required',
                 'tgl_sumbangan' => 'required',
-                'nominal' => 'required|size:13'
+                'nominal' => 'required'
             ]);
             $validatedData['nominal'] = str_replace(',','',$request->nominal);
             $validatedData['id_penyumbang'] = $id;
-            if ($validatedData['nominal']>2147483647) {
-                return back()->with('error', 'Angka Tidak Boleh > 2,000,000,000 ');
-            }
             daftar_penyumbang::create($validatedData);
             return redirect("/daftarpenyumbang/$id")->with('success','Tambah Penyumbang Berhasil!');
         }else{
@@ -50,9 +47,6 @@ class PenyumbangController extends Controller
             ]);
             $validatedData['nominal'] = str_replace(',','',$request->nominal);
             $validatedData['id_penyumbang'] = $id;
-            if ($validatedData['nominal']>2147483647) {
-                return back()->with('error', 'Angka Tidak Boleh > 2,000,000,000 ');
-            }
             daftar_penyumbang::where('id_daftar_penyumbang',$daftar_penyumbang->id_daftar_penyumbang)->update($validatedData);
             return redirect("/daftarpenyumbang/$id")->with('success','Ubah Penyumbang Berhasil!');
         }else{
