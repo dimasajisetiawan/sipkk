@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <input type="text" class="form-control currency @error('nominal') is-invalid
-                        @enderror" name="nominal">
+                        @enderror" name="nominal" maxlength="18">
                         </div>
                         @error('nominal')
                         <div class="invalid-message">
