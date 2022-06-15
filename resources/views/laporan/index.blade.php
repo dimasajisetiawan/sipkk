@@ -16,7 +16,7 @@
                         <select class="form-control select2 " style="width: 25% p-3" name="bulan" id="bulan">
                             <option value="0">Pilih Bulan....</option>
                             @foreach ($bulan as $bln)
-                            <option value="{{ $bln->bulan }}">{{$bln->bulan }}</option>
+                            <option value="{{ $bln->bulan }}">{{Carbon\Carbon::createFromFormat('m', $bln->bulan)->format('F') }}</option>
                             @endforeach
                         </select>
                         <select class="form-control select2" style="width: 25% p-3" name="tahun" id="tahun">

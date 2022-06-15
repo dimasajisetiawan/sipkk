@@ -9,7 +9,10 @@
         <div class="card-header">
           <h4>Data Pengguna</h4>
           <div class="card-header-action">
+            @can('admin')
             <a href="tambahpengguna" class="btn btn-icon icon-left btn-light"><i class="fas fa-plus"></i>Tambah Pengguna</a>
+            @endcan
+
           </div>
         </div>
         <div class="card-body">
@@ -47,9 +50,15 @@
         <div class="card-header">
             <h4>Daftar Akun</h4>
             <div class="card-header-action">
-              <a href="/tambahlevelsatu" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 1</a>
-              <a href="/tambahleveldua" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 2</a>
-              <a href="/tambahleveltiga" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 3</a>
+                @can('admin')
+                <a href="/tambahlevelsatu" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 1</a>
+                <a href="/tambahleveldua" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 2</a>
+                <a href="/tambahleveltiga" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 3</a>
+                @endcan
+                @can('bendahara')
+                <a href="/tambahleveldua" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 2</a>
+                <a href="/tambahleveltiga" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 3</a>
+                @endcan
             </div>
         </div>
         <div class="card-body">
@@ -106,7 +115,6 @@
         <div class="card-header">
           <h4>Laporan</h4>
           <div class="card-header-action">
-            <button href="#" class="btn btn-icon icon-left btn-sm"><i class="fas fa-plus"></i>Tambah</button>
           </div>
         </div>
         <div class="card-body">

@@ -24,6 +24,9 @@ class checkRole
             if( $user == $role){
                 return $next($request);
             }
+            if($user==null){
+                redirect('/');
+            }
         }
         return redirect('/');
     }
