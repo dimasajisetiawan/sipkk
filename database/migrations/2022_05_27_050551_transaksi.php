@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('tgl_transaksi');
             $table->char('jenis_saldo',6);
             $table->decimal('saldo',17,2);
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->char('kode_kegiatan',10)->nullable(true);
             $table->timestamps();
             $table->foreign('kode_kegiatan')->references('kode_kegiatan')->on('sumbangan')->cascadeOnUpdate()->cascadeOnDelete();

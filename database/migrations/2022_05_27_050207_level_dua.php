@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('level_dua', function (Blueprint $table) {
             $table->id('id_level_dua');
-            $table->string('kode_akun');
-            $table->string('nama_akun');
+            $table->char('kode_akun',7);
+            $table->string('nama_akun',100);
             $table->unsignedBigInteger('id_level_satu');
             $table->timestamps();
             $table->foreign('id_level_satu')->references('id_level_satu')->on('level_satu')->cascadeOnUpdate()->cascadeOnDelete();

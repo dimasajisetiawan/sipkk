@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('level_satu', function (Blueprint $table) {
             $table->id('id_level_satu');
-            $table->string('kode_akun');
-            $table->string('nama_akun');
+            $table->char('kode_akun',7);
+            $table->string('nama_akun',100);
             $table->timestamps();
         });
     }

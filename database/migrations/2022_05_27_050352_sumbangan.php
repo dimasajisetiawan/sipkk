@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('sumbangan', function (Blueprint $table) {
             $table->char('kode_kegiatan',10)->primary();
-            $table->string('nama_kegiatan');
-            $table->string('keterangan');
+            $table->string('nama_kegiatan',100);
+            $table->text('keterangan');
             $table->date('tgl_buka');
             $table->date('tgl_tutup');
             $table->integer('status')->default(0);

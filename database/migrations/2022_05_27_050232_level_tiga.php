@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('level_tiga', function (Blueprint $table) {
             $table->id('id_level_tiga');
-            $table->string('kode_akun');
-            $table->string('nama_akun');
+            $table->char('kode_akun',7);
+            $table->string('nama_akun',100);
             $table->unsignedBigInteger('id_level_dua');
             $table->timestamps();
             $table->foreign('id_level_dua')->references('id_level_dua')->on('level_dua')->cascadeOnUpdate()->cascadeOnDelete();
