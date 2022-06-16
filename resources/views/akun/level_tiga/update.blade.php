@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('section')
     <div class="section-header">
-        <h1>Tambah Level Tiga</h1>
+        <h1>Edit Ubah Tiga</h1>
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -58,7 +58,7 @@
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary">
-                                Tambah Level Tiga
+                                Ubah Level Tiga
                             </button>
                         </div>
                     </form>

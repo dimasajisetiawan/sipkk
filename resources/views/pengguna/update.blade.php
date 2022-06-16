@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('section')
 <div class="section-header">
-    <h1>Tambah Pengguna</h1>
+    <h1>Edit Pengguna</h1>
   </div>
 <div class="row">
     <div class="col-lg-12">
     <div class="card">
         <div class="card-header">
-          <h4>Form Tambah Pengguna</h4>
+          <h4>Form Edit Pengguna</h4>
         </div>
         <div class="card-body">
             <form action="/ubahpengguna/{{ $user->id_user }}" method="post">

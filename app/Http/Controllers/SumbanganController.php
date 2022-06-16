@@ -33,8 +33,13 @@ class SumbanganController extends Controller
             'nama_kegiatan' => 'required',
             'keterangan' => 'required'
         ]);
-        sumbangan::create($validatedData);
+        if($request ->tgl_tutup < $request->tgl_buka &&  $request->tgl_buka > $request ->tgl_tutup){
+            return redirect('/bukasumbangan');
+        }else{
+            sumbangan::create($validatedData);
         return redirect('/daftarsumbangan')->with('success','Tambah Sumbangan Berhasil!');
+        }
+       
         }else{
             return view('sumbangan.open');
         }
@@ -49,8 +54,13 @@ class SumbanganController extends Controller
             'nama_kegiatan' => 'required',
             'keterangan' => 'required'
         ]);
-        sumbangan::where('kode_kegiatan',$sumbangan->kode_kegiatan)->update($validatedData);
-        return redirect('/daftarsumbangan')->with('success','Ubah Sumbangan Berhasil!');
+        if($request ->tgl_tutup < $request->tgl_buka &&  $request->tgl_buka > $request ->tgl_tutup){
+            return redirect('/bukasumbangan');
+        }else{
+            sumbangan::where('kode_kegiatan',$sumbangan->kode_kegiatan)->update($validatedData);
+            return redirect('/daftarsumbangan')->with('success','Ubah Sumbangan Berhasil!');
+        }
+       
         }else{
             return view('sumbangan.update',[
                 'sumbangan' => $sumbangan

@@ -36,7 +36,7 @@
               </div>
               <div>
                   <button type="submit" class="btn btn-primary">
-                      Tambah Level Satu
+                      Ubah Level Satu
                   </button>
               </div>
             </form>

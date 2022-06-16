@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('section')
 <div class="section-header">
-    <h1>Daftar Akun</h1>
+    <h1>Daftar Akun Level 2 </h1>
   </div>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Daftar Akun</h4>
+                <h4>Daftar Akun Level 2 </h4>
                 <div class="card-header-action">
                     <a href="/tambahleveldua" class="btn btn-icon btn-sm icon-left btn-light"><i class="fas fa-plus"></i>Level 2</a>
                   </div>
