@@ -60,5 +60,7 @@
         <li class="menu-header">Laporan</li>
         <li class="{{Request::is('*laporan*') ? 'active' : "" }}""><a class="nav-link" href="/daftarlaporan"><i class="fas fa-list"></i> <span>Daftar Laporan</span></a></li>
         @endcan
+        <li class="menu-header">Uji Coba</li>
+        <li class><a class="nav-link" href="/ujicoba"><i class="fas fa-list"></i> <span>Uji Coba</span></a></li>
     </aside>
   </div>

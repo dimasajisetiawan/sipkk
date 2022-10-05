@@ -93,3 +93,7 @@ Route::controller(JsonAkun::class)->group(function() {
     Route::get('cekperiode','cek_periode')->name('cekperiode');
 });
 
+Route::get('ujicoba',function(){
+    return view('uji_coba.index');
+});
+

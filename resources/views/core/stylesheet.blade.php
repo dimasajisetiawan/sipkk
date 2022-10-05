@@ -1,6 +1,9 @@
 <!-- General CSS Files -->
 <link rel="stylesheet" href="{{ asset('') }}dist/assets/modules/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{ asset('') }}dist/assets/modules/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
 
 <!-- CSS Libraries -->
 <link rel="stylesheet" href="{{ asset('') }}dist/assets/modules/jqvmap/dist/jqvmap.min.css">
